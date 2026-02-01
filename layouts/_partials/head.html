@@ -2,5 +2,5 @@
 <meta name="viewport" content="width=device-width">
 <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
-{{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
+{{ partialCached "head/css.html" . }}

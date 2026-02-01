@@ -70,7 +70,7 @@ function printSeparator(char = '═', length = 50, color = '#ff6b6b') {
 /**
  * 初始化版权信息
  */
-function initCopyright() {
+function init() {
   // 清空控制台
   console.clear();
 
@@ -131,7 +131,6 @@ if (typeof window !== 'undefined') {
 }
 
 
-export const init = () => {
-  // 初始化版权信息
-  initCopyright();
-};
+export {
+  init
+}

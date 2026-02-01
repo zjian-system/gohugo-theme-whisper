@@ -3,7 +3,7 @@
  */
 import { dom, helpers, storage } from '../utils/index.js';
 
-export const init = () => {
+const init = () => {
 
   // 初始化搜索框
   initSearchBox();
@@ -144,6 +144,6 @@ const initSearchResults = () => {
   });
 };
 
-export default {
+export {
   init
 };

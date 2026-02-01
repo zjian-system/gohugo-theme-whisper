@@ -3,7 +3,7 @@
  */
 import { helpers, dom } from '../utils/index.js';
 
-export const init = () => {
+const init = () => {
 
   // 初始化图片懒加载
   initImageLazyload();
@@ -77,6 +77,6 @@ const loadImage = (image) => {
   }
 };
 
-export default {
+export {
   init
 };
