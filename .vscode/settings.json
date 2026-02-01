@@ -4,5 +4,6 @@
     "editor.formatOnPaste": false,
     "editor.formatOnType": false
   },
-  "prettier.enable": false
+  "prettier.enable": false,
+  "editor.formatOnSave": true
 }
