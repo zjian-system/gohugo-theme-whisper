@@ -1,9 +1,43 @@
-{{- with resources.Get "css/main.css" }}
+{{/*  媒体查询样式  */}}
+{{- with resources.Get "css/media.scss" | css.Sass }} 
   {{- if hugo.IsDevelopment }}
-    <link rel="stylesheet" href="{{ .RelPermalink }}">
-  {{- else }}
-    {{- with . | minify | fingerprint }}
-      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
-    {{- end }}
-  {{- end }}
-{{- end }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" />
+  {{- else }} 
+    {{- with $css := . | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous" />
+    {{- end }} 
+  {{- end }} 
+{{- end }} 
+
+{{/*  主题样式  */}}
+{{- with resources.Get "css/theme.scss" | css.Sass }} 
+  {{- if hugo.IsDevelopment }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" />
+  {{- else }} 
+    {{- with $css := . | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous" />
+    {{- end }} 
+  {{- end }} 
+{{- end }} 
+
+{{/*  基础样式表  */}}
+{{- with resources.Get "css/base.scss" | css.Sass }} 
+  {{- if hugo.IsDevelopment }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" />
+  {{- else }} 
+    {{- with $css := . | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous" />
+    {{- end }} 
+  {{- end }} 
+{{- end }} 
+
+{{/*  主样式表  */}}
+{{- with resources.Get "css/main.scss" | css.Sass }} 
+  {{- if hugo.IsDevelopment }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" />
+  {{- else }} 
+    {{- with $css := . | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous" />
+    {{- end }} 
+  {{- end }} 
+{{- end }} 

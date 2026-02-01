@@ -1,0 +1,87 @@
+$breakpoints: (
+  phone: (
+    0px,
+    500px,
+  ),
+  pad: (
+    481px,
+    768px,
+  ),
+  tablet: (
+    0,
+    992px,
+  ),
+  laptop: (
+    769px,
+    1024px,
+  ),
+  desktop: (
+    1025px,
+    1200px,
+  ),
+
+  xs: 500px,
+  sm: 768px,
+  md: 1024px,
+  lg: 1280px,
+  xl: 1500px,
+);
+
+@mixin respond-to($breakname) {
+  $bp: map-get($breakpoints, $breakname);
+  @if type-of($bp) == "list" {
+    $min: nth($bp, 1);
+    $max: nth($bp, 2);
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $bp) {
+      @content;
+    }
+  }
+}
+
+body {
+  .hide-xs,
+  .hide-sm {
+    display: block;
+  }
+
+  .show-md,
+  .show-xs-flex,
+  .show-xs-block,
+  .show-sm-flex {
+    display: none;
+  }
+
+  @include respond-to("xs") {
+    .hide-xs {
+      display: none;
+    }
+    .show-xs-flex {
+      display: flex;
+    }
+  }
+
+  @include respond-to("sm") {
+    .hide-sm {
+      display: none;
+    }
+    .show-sm-flex {
+      display: flex;
+    }
+  }
+
+  @include respond-to("md") {
+    .show-md {
+      display: block;
+    }
+  }
+}
+
+@include respond-to("phone") {
+  .arco-modal {
+    width: calc(100vw - 20px);
+  }
+}

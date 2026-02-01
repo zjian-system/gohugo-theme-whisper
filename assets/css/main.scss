@@ -1,0 +1,166 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --accent: #4a6741;
+}
+
+html {
+  transition: background-color 0.5s ease;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  scroll-behavior: smooth;
+  font-family: 'Noto Serif SC', serif;
+}
+
+
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+
+
+.font-calligraphy {
+  font-family: 'Zhi Mang Xing', cursive;
+}
+
+.font-poetic {
+  font-family: 'Ma Shan Zheng', cursive;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d1d1;
+  border-radius: 10px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.paper-texture {
+  background-image: url('/images/natural-paper.png');
+}
+
+.dark .paper-texture {
+  background-image: url('/images/natural-paper.png');
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+.classical-frame {
+  border: 1px solid #e5e1d8;
+  position: relative;
+}
+
+.dark .classical-frame {
+  border-color: #2d2926;
+}
+
+.classical-frame::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid rgba(140, 130, 115, 0.2);
+  pointer-events: none;
+}
+
+/* Leaflet Custom Styles */
+.ink-map {
+  filter: sepia(20%) contrast(90%) brightness(105%) hue-rotate(50deg) saturate(40%);
+}
+
+.dark .ink-map {
+  filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%) saturate(30%);
+}
+
+.leaflet-container {
+  background: transparent !important;
+}
+
+.ink-marker {
+  background: var(--accent);
+  border: 2px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(74, 103, 65, 0.3);
+}
+
+.marker-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(74, 103, 65, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(74, 103, 65, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(74, 103, 65, 0);
+  }
+}
+
+header {
+  height: 70px;
+}
