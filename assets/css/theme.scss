@@ -1,9 +1,22 @@
 :root {
   --bg-color: #fdfcf9;
+  --title-color: #2d2926;
   --text-color: #2d2926;
+  --border-color: #e5e1d8;
 }
 
 html.dark {
   --bg-color: #121212;
+  --title-color: #fdfcf8;
   --text-color: #e5e1d8;
+  --border-color: #2d2926;
+}
+
+
+.text-color {
+  color: var(--text-color);
+}
+
+.title-color {
+  color: var(--title-color);
 }

@@ -1,0 +1,48 @@
+{{- define "main" }}
+  <article class="post" id="post">
+    <header class="post-header">
+      <h1 class="post-title">{{ .Title }}</h1>
+      {{- if .Description }}
+        <div class="post-description">{{ .Description }}</div>
+      {{- end }}
+      {{- if not .Date.IsZero }}
+        <div class="post-meta">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+            <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+            <line x1="16" x2="16" y1="2" y2="6"></line>
+            <line x1="8" x2="8" y1="2" y2="6"></line>
+            <line x1="3" x2="21" y1="10" y2="10"></line>
+          </svg>
+          <span class="post-meta-item-text">更新于</span>
+          <time class="post-meta-item" datetime="{{ .Date.Format "2006-01-02" }}">
+            {{ .Date.Format "2006-01-02" }}
+          </time>
+        </div>
+      {{- end }}
+    </header>
+    <div class="post-content">
+      {{- if .Content }}
+        {{ .Content }}
+      {{- end }}
+      
+      {{- /* 足迹时间线 */}}
+      <div class="footprint-timeline">
+        {{- $currentYear := "" }}
+        {{- range where .Site.RegularPages "Type" "footprint" }}
+          {{- $year := .Date.Format "2006" }}
+          {{- if ne $year $currentYear }}
+            {{- $currentYear = $year }}
+            <div class="footprint-year">{{ $year }}年</div>
+          {{- end }}
+          <div class="footprint-item">
+            <div class="footprint-date">{{ .Date.Format "01月" }}</div>
+            <div class="footprint-content">
+              <h3>{{ .Title }}</h3>
+              {{ .Content }}
+            </div>
+          </div>
+        {{- end }}
+      </div>
+    </div>
+  </article>
+{{- end }}

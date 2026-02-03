@@ -4,21 +4,33 @@ title = 'My New Hugo Site'
 
 [menus]
   [[menus.main]]
-    name = 'Home'
+    name = '首页'
     pageRef = '/'
     weight = 10
 
   [[menus.main]]
-    name = 'Posts'
+    name = '归档'
     pageRef = '/posts'
     weight = 20
 
   [[menus.main]]
-    name = 'Tags'
-    pageRef = '/tags'
+    name = '友邻'
+    pageRef = '/links'
     weight = 30
+
+  [[menus.main]]
+    name = '足迹'
+    pageRef = '/footprint'
+    weight = 40
+
+  [[menus.main]]
+    name = '关于'
+    pageRef = '/about'
+    weight = 50
+
+
 
 [module]
   [module.hugoVersion]
-    extended = false
+    extended = true
     min = '0.146.0'

@@ -1,4 +1,12 @@
-<h1>{{ site.Title }}</h1>
+<a class="flex-yc font-calligraphy  title-color fw-600 pointer" href="{{ .Site.BaseURL }}">
+  <img src="/logo.svg" alt="{{ site.Title }}" class="header__logo mr-10" />
+  <h1 class="fs-22">{{ site.Title }}</h1>
+</a>
 
-<button class="theme-toggle">主题切换</button>
-{{/* {{ partial "menu.html" (dict "menuID" "main" "page" .) }} */}}
+<div class="flex-yc">
+{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+<div class="header-divider mx-10"></div>
+<div class="flex-yc">
+  <button class="theme-toggle">主题切换</button>
+</div>
+</div>
