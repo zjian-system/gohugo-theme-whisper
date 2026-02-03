@@ -1,0 +1,32 @@
+@font-face {
+  font-family: remix;
+  src: url(/fonts/remix/iconfont.eot);
+  src: url(/fonts/remix/iconfont.eot);
+  src:
+    url(/fonts/remix/iconfont.eot#iefix) format('embedded-opentype'),
+    url(/fonts/remix/iconfont.woff2) format('woff2'),
+    url(/fonts/remix/iconfont.woff) format('woff'),
+    url(/fonts/remix/iconfont.ttf) format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: douyu;
+  src:
+    url(/fonts/douyu.woff) format('woff'),
+    url(/fonts/douyu.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: youshe;
+  src:
+    url(/fonts/youshe.ttf) format('truetype');
+}
+
+.douyu {
+  font-family: douyu;
+}
+
+.youshe {
+  font-family: youshe;
+}

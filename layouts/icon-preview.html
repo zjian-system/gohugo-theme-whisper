@@ -1,0 +1,41 @@
+{{ define "main" }}
+{{ if hugo.IsProduction }}
+<div class="icon-preview-error">
+  <h2>此页面仅在开发环境可见</h2>
+  <p>Icon Preview is only available in development mode</p>
+</div>
+{{ else }}
+<div class="icon-preview-container">
+  <div class="icon-preview-header">
+    <h1>Remix Icon 预览</h1>
+    <div class="icon-preview-controls">
+      <input type="text" id="iconSearch" placeholder="搜索图标..." class="icon-search-input">
+      <select id="itemsPerPage" class="items-per-page-select">
+        <option value="48">48个/页</option>
+        <option value="96">96个/页</option>
+        <option value="144">144个/页</option>
+        <option value="192">192个/页</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="icon-preview-info">
+    <span id="iconCount">共 0 个图标</span>
+    <span id="pageInfo">第 1 页</span>
+  </div>
+
+  <div id="iconGrid" class="icon-grid"></div>
+
+  <div class="icon-pagination">
+    <button id="prevPage" class="pagination-btn" disabled>上一页</button>
+    <div id="pageNumbers" class="page-numbers"></div>
+    <button id="nextPage" class="pagination-btn">下一页</button>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="/js/remix-icons-data.js"></script>
+<script src="/js/icon-preview.js"></script>
+{{ end }}
+{{ end }}

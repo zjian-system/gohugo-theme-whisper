@@ -3,11 +3,13 @@
     "minify" (not hugo.IsDevelopment)
     "targetPath" "js/main.js"
   }}
-  {{- with . | js.Build $opts | minify | fingerprint }}
+  {{- with . | js.Build $opts  }}
     {{- if hugo.IsDevelopment }}
       <script src="{{ .RelPermalink }}" async></script>
     {{- else }}
-        <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" async></script>
+      {{- with . | minify | fingerprint }}
+        <script src="{{ .RelPermalink}}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" async></script>
+      {{- end }}
     {{- end }}
   {{- end }}
 {{- end }}
@@ -17,11 +19,13 @@
     "minify" (not hugo.IsDevelopment)
     "targetPath" "js/main.defer.js"
   }}
-  {{- with . | js.Build $opts | minify | fingerprint }}
+  {{- with . | js.Build $opts  }}
     {{- if hugo.IsDevelopment }}
       <script src="{{ .RelPermalink }}" defer></script>
     {{- else }}
+      {{- with . | minify | fingerprint }}
         <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
+      {{- end }}
     {{- end }}
   {{- end }}
 {{- end }}
