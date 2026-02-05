@@ -17,7 +17,7 @@ export class RemixIcon extends HTMLElement {
   render() {
     const name = this.getAttribute('name') || '';
     const size = this.getAttribute('size') || '16';
-    const color = this.getAttribute('color') || 'currentColor';
+    const color = this.getAttribute('color') || 'var(--menu-color)';
     const spin = this.hasAttribute('spin');
 
     this.shadowRoot.innerHTML = `

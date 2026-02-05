@@ -8,13 +8,27 @@ header {
   background-color: #fdfcf8e6;
   border-bottom: 1px solid var(--border-color);
 
+  @keyframes slide-in {
+  from {
+    color: #8c8273;
+    padding-bottom: 15px;
+    border-bottom: 2px solid transparent;
+  }
+
+  to {
+    color: var(--accent);
+    padding-bottom: 5px;
+    border-bottom: 2px solid var(--accent);
+  }
+}
+
   .header__logo {
     height: 32px;
   }
 
   .header-divider {
     margin-top: 2px;
-    height: 14px;
+    height: 20px;
     width: 1px;
     background-color: var(--border-color);
   }
@@ -26,12 +40,10 @@ header {
         color: #8c8273;
         font-weight: 700;
         margin: 0 12px;
-        padding-bottom: 5px;
-        transition: all 0.3s ease-in-out;
 
         &.active {
           color: var(--accent);
-          border-bottom: 2px solid var(--accent);
+          animation: slide-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
       }
     }

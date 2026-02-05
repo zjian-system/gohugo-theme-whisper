@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
       item.addEventListener('click', function () {
         const iconName = this.getAttribute('data-icon').replace('ri-', '');
 
-        copyToClipboard(`<remix-icon name="${iconName}" />`);
+        copyToClipboard(`<remix-icon name="${iconName}"></remix-icon>`);
       });
     });
   }
